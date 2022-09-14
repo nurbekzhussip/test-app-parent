@@ -35,7 +35,9 @@ function App() {
     }
 
      window.onmessage = function(event){
-       if(event.origin === 'https://test-app-three-wheat.vercel.app'){
+
+      console.log({event})
+      // if(event.origin === 'https://test-app-three-wheat.vercel.app'){
 
        switch(event.data){
          case 'getMe': handleSendMessage(getMe()); break;
@@ -43,7 +45,7 @@ function App() {
          case 'getGeo': getGeoAsync(); break;
          default: console.log(event.data); break;
        }
-       }
+       //}
       };
 
   },[])
