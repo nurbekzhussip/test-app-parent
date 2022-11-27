@@ -1,12 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef,useState } from 'react';
 import './App.css';
 
 function App() {
   const iframe = useRef();
+  const [name, setName] = useState('')
 
   const getMe = () => {
     return {
-      name: "Franz",
+      name: "Test",
       lastname: "Kafka",
       id: "1",
     }
@@ -60,9 +61,12 @@ function App() {
   return (
     <div style={{margin:'16px'}}>
     <h1>parent</h1>
+    {name}
+    <input type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
+
     <div>
     <iframe onLoad={handleLoad} allow="geolocation"
-        src="https://test-app-three-wheat.vercel.app" name="myiframe" id="myIframe" loading = "lazy" ref={iframe} 
+        src="https://kundelik.aitu.dev/" name="myiframe" id="myIframe" loading = "lazy" ref={iframe} 
         />
     </div>
     </div>
